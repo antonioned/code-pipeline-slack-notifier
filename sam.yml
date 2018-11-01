@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: Code Pipeline Slack Notifier
+Description: AWS Services Slack Notifier
 
 Parameters:
   SlackUrl:
@@ -21,11 +21,15 @@ Resources:
           SLACK_URL:
             Ref: SlackUrl
       Events:
-        CodePipelineEvent:
+        CodeEvent:
           Type: CloudWatchEvent
           Properties:
             Pattern:
               source:
               - aws.codepipeline
+              - aws.codecommit
+              - aws.ecs
               detail-type:
-              - CodePipeline Pipeline Execution State Change
+              - CodeCommit Repository State Change
+              - CodePipeline Stage Execution State Change
+              - ECS Task State Change
