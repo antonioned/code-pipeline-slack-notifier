@@ -2,3 +2,5 @@ node_modules
 target
 .envrc
 .vscode
+.DS_Store
+./documentation/.DS_Store
