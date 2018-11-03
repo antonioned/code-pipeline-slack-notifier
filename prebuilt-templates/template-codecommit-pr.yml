@@ -1,0 +1,32 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: AWS Services Slack Notifier
+
+Parameters:
+  SlackUrl:
+    AllowedPattern : ".+"
+    Type: String
+
+Resources:
+  CPLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: lib/index.handler
+      Runtime: nodejs6.10
+      MemorySize: 128
+      Timeout: 10
+      CodeUri: ./target/lambda.zip
+      Environment:
+        Variables:
+          SLACK_URL:
+            Ref: SlackUrl
+      Events:
+        CodeEvent:
+          Type: CloudWatchEvent
+          Properties:
+            Pattern:
+              source:
+              - aws.codecommit
+              detail-type:
+              - CodeCommit Pull Request State Change
+              - CodeCommit Comment on Pull Request
