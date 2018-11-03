@@ -4,7 +4,7 @@ This is forked from the original repo from SymphoniaCloud, big thanks to them fo
 
 I am using CloudWatch events from CodePipeline (CodePipeline Stage Execution State Change), CodeCommit (CodeCommit Repository Change) and ECS (ECS Task State Change). These three events are incorporated in the `./prebuilt-templates/template-aws-services.yml` file and used in the `./lib/index-AWS-services.js` function.
 
-The other function `./lib/index-CodeCommit-PR.js` uses only CodeCommit events (CodeCommit Pull Request State Change & CodeCommit Comment on Pull Request). These events are set in the other `./prebuilt-templates/template-codecommit-pr.js`.
+The other function `./lib/index-CodeCommit-PR.js` uses only CodeCommit events (CodeCommit Pull Request State Change & CodeCommit Comment on Pull Request). These events are set in the other `./prebuilt-templates/template-codecommit-pr.yml`.
 
 ![Screenshot](documentation/SlackScreenshot.png "screenshot") 
 
