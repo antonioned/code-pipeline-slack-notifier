@@ -6,7 +6,9 @@ I am using CloudWatch events from CodePipeline (CodePipeline Stage Execution Sta
 
 The other function `./lib/index-CodeCommit-PR.js` uses only CodeCommit events (CodeCommit Pull Request State Change & CodeCommit Comment on Pull Request). These events are set in the other `./prebuilt-templates/template-codecommit-pr.yml`.
 
-![Screenshot](documentation/SlackScreenshot.png "screenshot") 
+![Screenshot](documentation/SlackScreenshot-AWS-services.png "screenshot") 
+
+![Screenshot](documentation/SlackScreenshot-PRs.png "screenshot") 
 
 If you have Code Pipelines in multiple accounts / sub-accounts and/or regions then you'll need to deploy this application to each account+region combo that you have your Code Pipelines in.
 
